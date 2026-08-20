@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why a hub and not a mesh — Mohamed Mastouri Haddaji</title>
+<meta name="description" content="Day 2 of 10. Two agents building gooolll.com wrote the same fix on the same night. One commit went in the bin.">
+<meta name="author" content="Mohamed Mastouri Haddaji">
+<link rel="canonical" href="https://mohamedmastouri2000-boop.github.io/why-a-hub-and-not-a-mesh.html">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Mastouri Haddaji">
+<meta property="og:title" content="Why a hub and not a mesh — Mohamed Mastouri Haddaji">
+<meta property="og:description" content="Day 2 of 10. Two agents building gooolll.com wrote the same fix on the same night. One commit went in the bin.">
+<meta property="og:url" content="https://mohamedmastouri2000-boop.github.io/why-a-hub-and-not-a-mesh.html">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--bg:#0F1216;--fg:#E8EAED;--mute:#8A9099;--bright:#C9CFD8;--line:#272D35;--acc:#E5544B}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--acc)}
+h1{font-size:34px;line-height:1.2;letter-spacing:-.01em;margin:0 0 12px;font-weight:700}
+h2{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--bright);margin:44px 0 14px;font-weight:700}
+p{margin:0 0 18px}ul{margin:0 0 18px;padding-left:20px}li{margin:0 0 8px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 18px}
+.deck{font-size:19px;line-height:1.5;color:var(--bright);margin:0 0 28px}
+.rule{height:3px;width:170px;background:var(--acc);margin:26px 0 34px}
+.meta{font-size:13px;color:var(--mute);margin:0 0 30px}
+.card{border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:0 0 14px}
+.card a.t{font-size:18px;font-weight:600;border:0;display:block;margin:0 0 6px}
+.card .d{color:var(--mute);font-size:14px;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{font-size:13px;color:var(--bright);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin:0}
+.nav{font-size:14px;color:var(--mute);margin:0 0 44px}
+.nav a{color:var(--mute);border:0;margin-right:18px}.nav a:hover{color:var(--fg)}
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+footer a{color:var(--mute)}
+.orig{font-size:14px;color:var(--mute);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 6px 6px 0;padding:12px 16px;margin:0 0 34px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Why a hub and not a mesh", "description": "Day 2 of 10. Two agents building gooolll.com wrote the same fix on the same night. One commit went in the bin.", "datePublished": "2026-08-16", "dateModified": "2026-08-16", "inLanguage": "en", "url": "https://mohamedmastouri2000-boop.github.io/why-a-hub-and-not-a-mesh.html", "mainEntityOfPage": "https://mohamedmastouri2000-boop.github.io/why-a-hub-and-not-a-mesh.html", "author": {"@type": "Person", "@id": "https://mohamedmastouri2000-boop.github.io/#person", "name": "Mohamed Mastouri Haddaji", "url": "https://mohamedmastouri2000-boop.github.io"}, "publisher": {"@type": "Person", "@id": "https://mohamedmastouri2000-boop.github.io/#person", "name": "Mohamed Mastouri Haddaji"}, "keywords": "AI Transformation Leader, Agentic AI, Multi-Agent Systems, AI Governance, Government AI Factory, Google Cloud, SAP, Digital Transformation", "isBasedOn": "https://www.linkedin.com/pulse/why-hub-mesh-mohamed-mastouri-haddaji-ufnwe"}</script>
+</head>
+<body><div class="wrap">
+<nav class="nav"><a href="/">Home</a><a href="/#writing">Writing</a><a href="/#models">Models</a><a href="https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395">LinkedIn</a><a href="https://huggingface.co/mastouri">Hugging Face</a></nav>
+
+<p class="kicker">Day 2 of 10</p>
+<h1>Why a hub and not a mesh</h1>
+<p class="deck">Day 2 of 10. Two agents building gooolll.com wrote the same fix on the same night. One commit went in the bin.</p>
+<p class="meta">Mohamed Mastouri Haddaji &middot; 2026-08-16</p>
+<div class="rule"></div>
+<p class="orig">Originally published on LinkedIn &mdash; <a href="https://www.linkedin.com/pulse/why-hub-mesh-mohamed-mastouri-haddaji-ufnwe">read the original</a>.</p>
+<p>That is the whole argument for the design I am about to describe, and I did not believe it until it cost me the work.</p>
+<h2>What goes wrong when agents talk to each other</h2>
+<p>The intuitive architecture for a crew of agents is a mesh. A needs something from B, so A asks B. It is how a team of people works, and it feels like less bureaucracy.</p>
+<p>It is wrong, and the reason is specific.</p>
+<p>People in a room bump into each other. They overhear. They notice a colleague already has the file open. They say &quot;wait, aren&#x27;t you doing that?&quot; Almost all coordination between humans is ambient — it happens without anybody deciding to coordinate.</p>
+<p>Agents have none of that. They are fast, confident, and completely blind to each other. Two agents given overlapping context will both do the work, both do it well, and neither will ever know the other existed. You do not find out until you are looking at two commits that solve the same problem in different ways.</p>
+<p>Something has to be the collision detector. That is not a management function. It is a technical one.</p>
+<h2>The topology</h2>
+<p>Everything routes through the coordinator. Agents never hand work to each other.</p>
+<ul><li>Me to C over a Telegram bridge — a poller that turns my messages, photos and voice notes into agent input.</li><li>C to an agent as a direct session dispatch.</li><li>Agent to C as a structured post in a single channel, prefixed [A→C], [Q→C], and so on.</li><li>Shared written state — a decisions log, a lessons file, and a live ops dashboard.</li></ul>
+<p>One inbox, one outbox, one place where the current state of the world is written down.</p>
+<h2>The dispatch carries facts, not tasks</h2>
+<p>This is the part I would get wrong if I were rebuilding it from scratch, so it is worth stating plainly.</p>
+<p>A dispatch that says &quot;fix the standings page&quot; is a task title. It invites the agent to go and discover the problem for itself — which means every agent independently rediscovering the same context, arriving at slightly different understandings of it, and burning a large amount of work on rediscovery.</p>
+<p>A dispatch that carries the measurement already done is a different instruction. The coordinator measures first, never assumes, and hands the lane owner the facts along with the request.</p>
+<p>The cost of that discipline is that the coordinator has to actually know things. The benefit is that six other agents do not each have to find them out.</p>
+<h2>The cost, stated honestly</h2>
+<p>The hub costs a hop. Every piece of work travels agent to coordinator to agent instead of going direct. On a small change that is real latency and it is annoying.</p>
+<p>It also puts a single point of failure in the middle. If the coordinator is wrong, everyone downstream is wrong in the same direction — which is a genuine risk, and one that has already bitten me. I will describe exactly how in article 7, because the coordinator&#x27;s worst failure is the most useful thing in this series.</p>
+<p>I still take the trade. One hop of latency is cheaper than one binned commit, and far cheaper than two agents shipping contradictory fixes to the same file on the same day.</p>
+<h2>The rule underneath</h2>
+<p>Split lanes by what an action can break, then make the coordinator the only route between them.</p>
+<p>Not by seniority. Not by skill. Not by who is best at the task — the back-end agent can write front-end code perfectly well, and is not allowed to, because the person who authors a change should not also be the one who declares it safe.</p>
+<p>Which is tomorrow&#x27;s article.</p>
+<p>Day 3: Author, do not apply.</p>
+
+<footer>
+<p>Mohamed Mastouri Haddaji &mdash; AI Transformation Leader. Doha, Qatar.<br>
+<a href="https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395">LinkedIn</a> &middot; <a href="https://huggingface.co/mastouri">Hugging Face</a> &middot; <a href="https://github.com/mohamedmastouri2000-boop">GitHub</a></p>
+</footer>
+</div></body></html>

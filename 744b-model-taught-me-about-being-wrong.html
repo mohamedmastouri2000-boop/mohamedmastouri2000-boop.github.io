@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What a 744-billion-parameter model taught me about being wrong — Mohamed Mastouri Haddaji</title>
+<meta name="description" content="Six weeks of running a frontier-scale MoE on a single 16GB GPU - and the two times I had to retract in public.">
+<meta name="author" content="Mohamed Mastouri Haddaji">
+<link rel="canonical" href="https://mohamedmastouri2000-boop.github.io/744b-model-taught-me-about-being-wrong.html">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Mastouri Haddaji">
+<meta property="og:title" content="What a 744-billion-parameter model taught me about being wrong — Mohamed Mastouri Haddaji">
+<meta property="og:description" content="Six weeks of running a frontier-scale MoE on a single 16GB GPU - and the two times I had to retract in public.">
+<meta property="og:url" content="https://mohamedmastouri2000-boop.github.io/744b-model-taught-me-about-being-wrong.html">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--bg:#0F1216;--fg:#E8EAED;--mute:#8A9099;--bright:#C9CFD8;--line:#272D35;--acc:#E5544B}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--acc)}
+h1{font-size:34px;line-height:1.2;letter-spacing:-.01em;margin:0 0 12px;font-weight:700}
+h2{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--bright);margin:44px 0 14px;font-weight:700}
+p{margin:0 0 18px}ul{margin:0 0 18px;padding-left:20px}li{margin:0 0 8px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 18px}
+.deck{font-size:19px;line-height:1.5;color:var(--bright);margin:0 0 28px}
+.rule{height:3px;width:170px;background:var(--acc);margin:26px 0 34px}
+.meta{font-size:13px;color:var(--mute);margin:0 0 30px}
+.card{border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:0 0 14px}
+.card a.t{font-size:18px;font-weight:600;border:0;display:block;margin:0 0 6px}
+.card .d{color:var(--mute);font-size:14px;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{font-size:13px;color:var(--bright);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin:0}
+.nav{font-size:14px;color:var(--mute);margin:0 0 44px}
+.nav a{color:var(--mute);border:0;margin-right:18px}.nav a:hover{color:var(--fg)}
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+footer a{color:var(--mute)}
+.orig{font-size:14px;color:var(--mute);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 6px 6px 0;padding:12px 16px;margin:0 0 34px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "What a 744-billion-parameter model taught me about being wrong", "description": "Six weeks of running a frontier-scale MoE on a single 16GB GPU - and the two times I had to retract in public.", "datePublished": "2026-08-15", "dateModified": "2026-08-15", "inLanguage": "en", "url": "https://mohamedmastouri2000-boop.github.io/744b-model-taught-me-about-being-wrong.html", "mainEntityOfPage": "https://mohamedmastouri2000-boop.github.io/744b-model-taught-me-about-being-wrong.html", "author": {"@type": "Person", "@id": "https://mohamedmastouri2000-boop.github.io/#person", "name": "Mohamed Mastouri Haddaji", "url": "https://mohamedmastouri2000-boop.github.io"}, "publisher": {"@type": "Person", "@id": "https://mohamedmastouri2000-boop.github.io/#person", "name": "Mohamed Mastouri Haddaji"}, "keywords": "AI Transformation Leader, Agentic AI, Multi-Agent Systems, AI Governance, Government AI Factory, Google Cloud, SAP, Digital Transformation", "isBasedOn": "https://www.linkedin.com/pulse/what-744-billion-parameter-model-taught-me-being-mastouri-haddaji-tytee"}</script>
+</head>
+<body><div class="wrap">
+<nav class="nav"><a href="/">Home</a><a href="/#writing">Writing</a><a href="/#models">Models</a><a href="https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395">LinkedIn</a><a href="https://huggingface.co/mastouri">Hugging Face</a></nav>
+
+<p class="kicker">Field notes</p>
+<h1>What a 744-billion-parameter model taught me about being wrong</h1>
+<p class="deck">Six weeks of running a frontier-scale MoE on a single 16GB GPU - and the two times I had to retract in public.</p>
+<p class="meta">Mohamed Mastouri Haddaji &middot; 2026-08-15</p>
+<div class="rule"></div>
+<p class="orig">Originally published on LinkedIn &mdash; <a href="https://www.linkedin.com/pulse/what-744-billion-parameter-model-taught-me-being-mastouri-haddaji-tytee">read the original</a>.</p>
+<p>It started as a stubborn question: could I run a 744B-parameter mixture-of-experts model on one consumer graphics card?</p>
+<p>The card is an RTX 5080 with 16GB of VRAM. The model, GLM-5.2, has 744 billion parameters spread across 78 layers, 75 of which route each token through 8 of 256 experts. Quantised hard, the weights still need somewhere north of 100GB. The arithmetic does not work. It works anyway, because of a streaming engine called colibri that keeps the hot experts resident in system RAM and VRAM and pulls the rest off NVMe as the router asks for them. Whether it feels usable comes down to one number: how often the expert the router wants is already in memory.</p>
+<p>That number is where the story begins.</p>
+<h2>THE REGRESSION</h2>
+<p>After a release upgrade, my expert hit rate fell off a cliff. On the E8 quantisation it went from 97.4% to 84.2%; resident set collapsed from 106GB to 50GB. The engine was pinning 1,352 experts where it used to pin 3,588. Decode throughput dropped about 19%.</p>
+<p>Reading the pinning code, the shape of the bug suggested the budget was being divided once globally instead of per container. If that was right, a fix should restore roughly 2,400 pinned experts on one quantisation and roughly 3,500 on the other. I posted those two numbers on the issue thread before any patch existed, precisely so I could not move the goalposts afterwards.</p>
+<p>When the fix landed, it measured 2,406 and 3,536.</p>
+<p>That should have been the happy ending. It was not, because throughput did not follow. Residency was restored and the model was still slow. So I built the pull request&#x27;s own merge base, ran the same sweep, and found the gap sitting almost entirely on one profiler line: expert matmul, 20 seconds in the old build against 29 in the new one. I wrote it up as a second, separate regression that had arrived in the fifty-odd commits between the two points, and published it.</p>
+<p>It was not real.</p>
+<h2>THE RETRACTION</h2>
+<p>I had compared builds I compiled that morning against numbers I had recorded a few days earlier. Same commit, same script, same toolchain - but not the same machine state. I rebuilt the anchor commit fresh and it measured 29.29 seconds where it had previously measured 23.64. The commit had not changed. The box had.</p>
+<p>I rebooted. The same commit, same binary recipe, came back at 24.21.</p>
+<p>So I went back to the thread and retracted it. Then I found a second error in what I had published: I had claimed the runs invoked the engine binary directly and never the launcher, which was the basis for eliminating one of the candidate commits. My harness does go through the launcher. I ran an A/B to show the launcher made no difference to the result - the conclusion survived - and corrected the claim anyway, because a conclusion that happens to be right for a stated reason that is false is not evidence, it is luck.</p>
+<p>I still cannot fully explain the drift. It was not a background process pinning a core - the same process sat at 100% of one core out of 24 during the good runs too. It was not build flags; the compiler line was byte-identical across every build. What I can say is that this machine accumulated roughly a 20% CPU penalty over a long uptime and shed it on restart, with resident set and hit rate completely unchanged throughout - the signature of pure compute drift rather than anything about memory or I/O.</p>
+<p>Then I measured how fast it accumulates. I ran five full sweeps back to back in one session, with the same anchor commit running first and last as a bracket. The two anchors disagreed by about 5% across 105 minutes, with resident set and hit rate identical at both ends. This box degrades measurably inside a single session under sustained load.</p>
+<p>Two consequences followed, and I care more about the second one.</p>
+<p>The first is procedural: benchmark numbers from this machine taken more than a couple of hours apart should not be compared, and across days they should not be compared at all without rebuilding an anchor commit first. That applies retroactively to some of my own earlier published numbers, which I said so on the thread.</p>
+<p>The second is that the drift ran in my favour and I refused to use it. The four builds ran in an order that put the winning build last, under the most degraded conditions of the session - so every gap I reported was a floor, not an estimate. I could have divided the drift out. The arithmetic is trivial and it widens the result in the direction I wanted. I did not, because two anchor points bound the magnitude of drift, they do not establish its shape, and a modelled correction dressed up as a measurement is exactly the mistake I had made twelve hours earlier.</p>
+<p>There was one more correction to make, and this is the one worth reading. On the degraded machine, I had credited the contributor&#x27;s fix with a ~4% throughput gain. Measured clean, in the same session, thirteen minutes apart, it was +10.0% on one quantisation and +9.5% on the other. My sloppiness had understated someone else&#x27;s work by more than half. Being wrong in public is uncomfortable when it costs you credit. It is worse when it costs someone else theirs.</p>
+<p>The regression is closed. Current development builds are at parity or slightly ahead of the last good release on every arm.</p>
+<h2>THE ATLAS</h2>
+<p>With the engine healthy, a different question got interesting. A mixture-of-experts model does not use all of itself for any given token. If I could see which experts a prompt actually wakes up, could I map what lives where?</p>
+<p>The model has 19,456 routed experts across its MoE layers. I built a probe set of sixteen topic categories - GPU architecture, history, code, mathematics, biology, economics, literature, cooking, law, music, geography, science, and four in Arabic - four prompts each, greedy decoding, and captured the router&#x27;s per-token selections through a trace hook. One critical setting: the engine has a cache-aware routing mode that biases expert selection toward whatever is already resident. That had to be off. Otherwise I would be measuring my own cache, not the model.</p>
+<p>The run bit me twice, which is by now the pattern of this project.</p>
+<p>First, the engine has an environment variable that is documented as disabling the write-back of usage history. I set it. My usage profile - the ranked history the engine uses to decide what to pin - got overwritten anyway. Reading the source, that variable is implemented in two of the engine&#x27;s model backends and not in the one I was using, which calls the save function unconditionally at five separate points. The documentation describes it as shared. So the probe prompts were quietly contaminating the profile the whole time. I restored from a master copy, wrapped every run in a snapshot-and-restore, and verified the file&#x27;s checksum before and after every sweep from then on.</p>
+<p>Second, just this week, a launcher timeout made me think a run had died when it had not. I started a second one. Two 744B engines streaming concurrently on one machine, both writing to the same trace file. I killed both, restored the profile from the verified master, deleted the contaminated traces, and re-ran clean. That batch cost twelve minutes instead of six. The alternative was publishing a number produced under conditions I had not accounted for, which is the thing this whole project has been teaching me not to do.</p>
+<p>The atlas covers 19,168 of 19,200 traceable experts across 3.48 million routed selections. Two findings stand out.</p>
+<p>Specialisation is real but modest, and it deepens with depth. Measuring how concentrated each expert&#x27;s usage is across topics, the early layers score 0.134, the middle layers 0.230, the late layers 0.204. Early layers are doing something closer to general token processing; specialisation emerges in the middle stack.</p>
+<p>And topics separate more cleanly than languages do. The overlap between the hottest 500 experts of any two English topics averages 0.197; between two Arabic topics, 0.311; across the language boundary, 0.144.</p>
+<p>That last number is what made the final experiment worth running. I took four cybersecurity questions in Arabic and translated them word for word into English, so language was the only variable. If the model routes primarily by language, the two should look like any other cross-language pair - around 0.14.</p>
+<p>They overlapped at 0.410. Twice the within-English baseline. Taking the 300 most security-enriched experts in each language, 183 are the same experts - 61% of each core, concentrated in the middle and late layers. The strongest ones are near-symmetric: one expert in layer 54 shows a 162x enrichment over the control topics in English and 162x in Arabic.</p>
+<p>The model, as far as I can measure it, has a cybersecurity region that is substantially language-independent. Which means a domain profile built from English probes should transfer to Arabic - and that the entire union of both cores is 417 experts, about 5.9GB. On a 16GB card, that is a pinnable working set.</p>
+<h2>WHAT I ACTUALLY LEARNED</h2>
+<p>The technical result I am proudest of is not the atlas. It is that I published a wrong number, found it myself, retracted it in the same thread, and then found a second error inside my own retraction and corrected that too.</p>
+<p>Three things I would keep:</p>
+<ul><li>Predict before you measure. Posting &quot;roughly 2,400 and 3,500&quot; before the patch existed is the only reason that result means anything.</li><li>Your machine is a variable. If you benchmark across days without an anchor commit, you are measuring your uptime.</li><li>When the noise runs in your favour, say so and leave it in. A floor you can defend beats an estimate you have to explain.</li></ul>
+<p>All of this is on public issue threads, raw logs included, mistakes and all. That is the part I would not change.</p>
+
+<footer>
+<p>Mohamed Mastouri Haddaji &mdash; AI Transformation Leader. Doha, Qatar.<br>
+<a href="https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395">LinkedIn</a> &middot; <a href="https://huggingface.co/mastouri">Hugging Face</a> &middot; <a href="https://github.com/mohamedmastouri2000-boop">GitHub</a></p>
+</footer>
+</div></body></html>

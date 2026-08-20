@@ -1,0 +1,39 @@
+# Mohamed Mastouri Haddaji
+
+> Mohamed Mastouri Haddaji is an AI Transformation Leader based in Doha, Qatar, working on agentic AI, multi-agent systems and AI governance. He is building a national Government AI Factory on Google Cloud and has 15+ years in SAP and digital transformation across the GCC.
+
+Location: Doha, Qatar. Languages: English, French, Arabic.
+Open to AI and enterprise transformation leadership roles in Qatar and the GCC.
+
+## Current work
+
+- Building a national Government AI Factory (AI Center of Excellence) with Google Cloud: collecting AI requirements across government entities and running the pipeline that turns them into delivered systems, including multi-agent creation and orchestration.
+- National HR platform programme on SAP SuccessFactors (performance and goal management), delivered with AI-assisted methods.
+- PMGM reporting dashboard on Google Cloud using BigQuery and Looker.
+- Performance-calibration application: SAPUI5 on SAP BTP Cloud Foundry.
+- AI security agent on Google Cloud (in development).
+
+## Background
+
+- 15+ years in SAP and digital transformation across Qatar, Saudi Arabia and Tunisia.
+- SAP HCM / SuccessFactors, S/4HANA programmes, enterprise architecture.
+
+## Open-weight model builds
+
+- https://huggingface.co/mastouri/GLM-5.2-colibri-int4-g64-with-int8-mtp (~10.5k downloads)
+- https://huggingface.co/mastouri/GLM-5.2-colibri-E8-IQ3-with-int8-mtp
+
+## Writing
+
+- [Seven agents, one production website](https://mohamedmastouri2000-boop.github.io/seven-agents-one-production-website.html) — 2026-08-15 — Day 1 of 10. There is a lot written about what AI agents can build. There is almost nothing written about how you wire several of them together without them destroying each other's work.
+- [Why a hub and not a mesh](https://mohamedmastouri2000-boop.github.io/why-a-hub-and-not-a-mesh.html) — 2026-08-16 — Day 2 of 10. Two agents building gooolll.com wrote the same fix on the same night. One commit went in the bin.
+- [Author, do not apply](https://mohamedmastouri2000-boop.github.io/author-do-not-apply.html) — 2026-08-17 — Day 3 of 10. The single most important rule in my setup is three words long.
+- [PASS, FAIL, UNPROVABLE NOW](https://mohamedmastouri2000-boop.github.io/pass-fail-unprovable-now.html) — 2026-08-18 — Day 4 of 10. My quality agent is allowed to return exactly three verdicts.
+- [Seventeen errors, none of them hallucinations](https://mohamedmastouri2000-boop.github.io/seventeen-errors-none-of-them-hallucinations.html) — 2026-08-20 — Day 5 of 10. The middle of the series, and the finding everything else was built on.
+- [What a 744-billion-parameter model taught me about being wrong](https://mohamedmastouri2000-boop.github.io/744b-model-taught-me-about-being-wrong.html) — 2026-08-15 — Six weeks of running a frontier-scale MoE on a single 16GB GPU - and the two times I had to retract in public.
+
+## Links
+
+- LinkedIn: https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395
+- Hugging Face: https://huggingface.co/mastouri
+- GitHub: https://github.com/mohamedmastouri2000-boop
