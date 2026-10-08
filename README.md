@@ -4,5 +4,5 @@ Mohamed Mastouri Haddaji is an AI Transformation Leader based in Doha, Qatar, wo
 
 Personal site: https://mohamedmastouri2000-boop.github.io
 
-- LinkedIn: https://www.linkedin.com/in/mohamed-mastouri-haddaji-b98aa395
+- LinkedIn: https://www.linkedin.com/in/mohamed-haddaji-mastouri-b98aa395
 - Hugging Face: https://huggingface.co/mastouri
